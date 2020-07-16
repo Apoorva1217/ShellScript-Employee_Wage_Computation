@@ -13,3 +13,13 @@ Attendance(){
 	fi
 }
 Attendance
+
+#Employee Wage
+HOUR=8
+WAGE=20
+DAILY_WAGE=0
+Dailywage(){
+	DAILY_WAGE=$(($WAGE * $HOUR))
+	echo "Daily Employee Wage is: $DAILY_WAGE"
+}
+Dailywage
