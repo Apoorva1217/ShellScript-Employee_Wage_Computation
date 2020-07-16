@@ -76,3 +76,7 @@ then
 else
 	echo "Month wage:"$MONTH_WAGE
 fi
+
+#Get the Working hours
+echo "Monthly Wage hours: $HOURS"
+echo "Part time wage hours: $(($HOURS / 2))"
