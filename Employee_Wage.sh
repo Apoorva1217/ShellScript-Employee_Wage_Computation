@@ -52,3 +52,27 @@ Monthwage(){
 	echo "Wage of month is: $MONTH_WAGE"
 }
 Monthwage
+
+#Calculate wage till 100 hours or 20 days for month
+HOURS=0
+DAYS=0
+WAGES=20
+TOTAL=0
+while [ $HOURS -lt 100 ] && [ $HOURS -lt 20 ]
+do
+	FULL_DAY=$((RANDOM % 2))
+	if [ $FULL_DAY -eq 1 ]
+	then
+		HOURS=$(($HOUR + $HOURS))
+		TOTAL=$(($HOURS * $WAGES))
+	else
+		HOURS=$(($(($HOUR / 2)) + $HOURS))
+		TOTAL=$(($HOURS * $WAGES))
+	fi
+done
+if [ $HOURS -eq 100 ]
+then
+	echo "Total:"$TOTAL
+else
+	echo "Month wage:"$MONTH_WAGE
+fi
