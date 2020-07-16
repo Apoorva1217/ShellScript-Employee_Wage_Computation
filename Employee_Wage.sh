@@ -92,3 +92,33 @@ for ((WAGE=1; WAGE<=20; WAGE++))
 do
         echo "Daily wage ${ARR[$WAGE,0]} : Monthly wage ${ARR[$WAGE,1]}"
 done
+
+#Store day and daily wage along with monthly wage
+NO_OF_DAY=1
+for ((DAY=1; DAY<=60; ))
+do
+	RECORD=$((RANDOM%3))
+	if [ $RECORD -eq 0 ]
+	then
+		ARR1[$DAY]=$NO_OF_DAY
+		ARR1[$(($DAY + 1))]=0
+		ARR1[$(($DAY + 2))]=$MONTH_WAGE
+	elif [ $RECORD -eq 1 ]
+	then
+		ARR1[$DAY]=$NO_OF_DAY
+		ARR1[$(($DAY + 1))]=$DAILY_WAGE
+		ARR1[$(($DAY + 2))]=$MONTH_WAGE
+	else
+		ARR1[$DAY]=$NO_OF_DAY
+		ARR1[$(($DAY + 1))]=$PART_TIME
+		ARR1[$(($DAY + 2))]=$MONTH_WAGE
+	fi
+	DAY=$(($DAY + 3))
+	NO_OF_DAY=$(($NO_OF_DAY + 1))
+done
+
+for ((DAY=0 ; DAY<=60; ))
+do
+	echo "Day :${ARR1[$DAY]} Wage :${ARR1[$((DAY + 1))]} Total Wage :${ARR1[$(($DAY + 2))]}"
+	DAY=$(($DAY + 3))
+done
