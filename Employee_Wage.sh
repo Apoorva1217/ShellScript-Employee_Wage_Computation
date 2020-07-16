@@ -80,3 +80,15 @@ fi
 #Get the Working hours
 echo "Monthly Wage hours: $HOURS"
 echo "Part time wage hours: $(($HOURS / 2))"
+
+#Store daily wage along with monthly wage
+for ((WAGE=1; WAGE<=20; WAGE++))
+do
+	ARR[$WAGE,0]=$DAILY_WAGE
+	ARR[$WAGE,1]=$MONTH_WAGE
+done
+
+for ((WAGE=1; WAGE<=20; WAGE++))
+do
+        echo "Daily wage ${ARR[$WAGE,0]} : Monthly wage ${ARR[$WAGE,1]}"
+done
